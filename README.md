@@ -107,3 +107,19 @@ Sprint 2 bileşenleri:
 - `src/ocr/parser.py`: Tarih, toplam tutar ve anahtar kelime tabanlı kategori çıkarır.
 - `src/database/connection.py`: SQLite veritabanını ve `expenses` tablosunu oluşturur.
 - `src/database/repository.py`: OCR sonucu oluşan harcama kayıtlarını ekler ve listeler.
+- `src/services/expense_service.py`: OCR, ayrıştırma ve veritabanı kayıt akışını birleştirir.
+- `run.py`: Sprint 2 için komut satırından çalıştırılabilir giriş noktasıdır.
+
+### Sprint 2'yi çalıştırma
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python run.py "uploads\ornek-fis.jpg"
+```
+
+Komut; görseli OCR ile okur, tarih/tutar/kategori alanlarını çıkarır ve
+`data/expenses.sqlite` dosyasına kaydeder. Tesseract OCR ve `tur` dil verisi
+kurulu olmalıdır. Kurulum yolu standart Windows yolu değilse
+`src/config/settings.py` içindeki `TESSERACT_COMMAND` değeri güncellenebilir.
