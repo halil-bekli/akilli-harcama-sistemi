@@ -88,3 +88,22 @@ SQLite
 5. Streamlit arayüzü
 6. Testler ve son düzenlemeler
 
+## Sprint 2 çalışma notları
+
+OCR için Python tarafında `pytesseract` ve görüntü açmak için Pillow kullanılır.
+`pytesseract` yalnızca Python aracıdır; bilgisayarda Tesseract OCR motorunun da
+kurulu olması gerekir. Türkçe fişler için Tesseract'ın `tur` dil veri dosyası
+kurulmalıdır.
+
+Bağımlılıkları proje klasöründe şu komutla kurabilirsiniz:
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
+Sprint 2 bileşenleri:
+
+- `src/ocr/reader.py`: Görsel dosyasını Tesseract'a gönderir.
+- `src/ocr/parser.py`: Tarih, toplam tutar ve anahtar kelime tabanlı kategori çıkarır.
+- `src/database/connection.py`: SQLite veritabanını ve `expenses` tablosunu oluşturur.
+- `src/database/repository.py`: OCR sonucu oluşan harcama kayıtlarını ekler ve listeler.
